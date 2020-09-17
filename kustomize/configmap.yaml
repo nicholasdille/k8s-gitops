@@ -1,0 +1,36 @@
+#@ load("@ytt:data", "data")
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: traefik
+  namespace: traefik
+data:
+  traefik.yaml: |
+    global:
+      checkNewVersion: false
+      sendAnonymousUsage: false
+    log:
+      level: INFO
+      format: common
+    api:
+      dashboard: true
+      insecure: true
+    ping:
+      entryPoint: ping
+    metrics:
+      prometheus:
+        entryPoint: metrics
+    entrypoints:
+      ping:
+        address: ":81"
+      http:
+        address: ":80"
+      https:
+        address: ":443"
+      metrics:
+        address: ":8082"
+      traefik:
+        address: ":8080"
+    providers:
+      kubernetesCRD: {}
