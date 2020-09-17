@@ -1,0 +1,7 @@
+#@data/values
+---
+timezone: Europe/Berlin
+traefik:
+  namespace: default
+  matchLabels:
+    app: traefik
