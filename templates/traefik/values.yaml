@@ -2,6 +2,6 @@
 ---
 timezone: Europe/Berlin
 traefik:
-  namespace: default
+  namespace: traefik
   matchLabels:
     app: traefik
