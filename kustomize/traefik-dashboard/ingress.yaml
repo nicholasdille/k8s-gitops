@@ -1,0 +1,30 @@
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: traefik-dashboard-auth
+  namespace: traefik
+spec:
+  basicAuth:
+    realm: "traefik dashboard"
+    secret: traefik-dashboard
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: traefik-dashboard
+  namespace: traefik
+spec:
+  entryPoints:
+  - http
+  routes:
+  - match: "HostRegexp(`traefik.{domain:.+}`)"
+    kind: Rule
+    priority: 12
+    services:
+    - name: traefik-dashboard
+      port: 80
+      strategy: RoundRobin
+    middlewares:
+    - name: traefik-dashboard-auth
+    - name: security
