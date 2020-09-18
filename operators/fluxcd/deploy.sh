@@ -2,7 +2,7 @@
 kubectl create ns flux
 
 # Install flux
-export GHUSER="nicholasdille"
+GHUSER="nicholasdille"
 fluxctl install \
 --git-user=${GHUSER} \
 --git-email=${GHUSER}@users.noreply.github.com \
