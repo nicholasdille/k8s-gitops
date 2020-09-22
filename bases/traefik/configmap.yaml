@@ -33,4 +33,5 @@ data:
       traefik:
         address: ":8080"
     providers:
+      kubernetesIngress: {}
       kubernetesCRD: {}
