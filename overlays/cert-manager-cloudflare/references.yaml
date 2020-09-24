@@ -1,0 +1,13 @@
+nameReference:
+- kind: Secret
+  fieldSpecs:
+  - kind: ClusterIssuer
+    path: spec/acme/solvers/dns01/cloudflare/apiKeySecretRef
+
+varReference:
+- kind: ClusterIssuer
+  path: spec/acme/email
+- kind: ClusterIssuer
+  path: spec/acme/solvers/dns01/cloudflare/email
+- kind: ClusterIssuer
+  path: spec/acme/solvers/selector/dnsZones

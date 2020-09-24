@@ -9,3 +9,6 @@ resources:
 - deployment.yaml
 - service.yaml
 - webhooks.yaml
+
+configurations:
+- references.yaml
